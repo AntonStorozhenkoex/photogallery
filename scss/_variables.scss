@@ -1,0 +1,26 @@
+$inputBorderColor: #000;
+$inputTextColor: #000;
+$dangerBackgroundColor: #f44336;
+$dangerTextColor: #fff;
+$headerTextColor: #9F9F9F;
+$commonTextColor: #D6D6D6;
+$buttonBorderColor: #000;
+$successBackgroundColor: #66bb6a;
+
+$borderRadius: 3px;
+
+
+
+
+:export {
+  inputBorderColor: $inputBorderColor;
+  inputTextColor: $inputTextColor;
+  dangerBackgroundColor: $dangerBackgroundColor;
+  dangerTextColor: $dangerTextColor;
+  headerTextColor: $headerTextColor;
+  commonTextColor: $commonTextColor;
+   borderRadius:$borderRadius;
+  buttonBorderColor: $buttonBorderColor;
+  $successBackgroundColor: $successBackgroundColor
+
+}
