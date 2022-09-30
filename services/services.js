@@ -1,4 +1,4 @@
-const link = "http://localhost:3006";
+const link = "https://server-son.herokuapp.com";
 import axios from "axios";
 
   class PhotoGalleryApi {
