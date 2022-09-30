@@ -1,0 +1,21 @@
+.list {
+  list-style: none;
+  display: flex;
+  position: absolute;
+  width: 85%;
+  justify-content: center;
+  top: -50px;
+}
+
+.listItem {
+  margin-right: 50px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 5px;
+  border: none;
+}
+
+.listItemLink {
+  text-decoration: none;
+  color: #000000;
+}

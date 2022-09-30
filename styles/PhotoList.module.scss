@@ -1,0 +1,30 @@
+@import "../scss/_variables";
+
+.photoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+}
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+
+  position: absolute;
+  width: 90%;
+  bottom: 0;
+}
+
+.button {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: $borderRadius;
+  padding: 2px 20px;
+}
+
+.pageCount {
+  display: none;
+}

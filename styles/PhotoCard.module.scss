@@ -1,0 +1,43 @@
+@import "../scss/_variables";
+
+.photoCard {
+  flex: 0 0 90px;
+  height: 90px;
+  border: 1px solid grey;
+  border-radius: $borderRadius;
+  margin: 0 20px 10px 0;
+  position: relative;
+}
+
+.photoCard:nth-child(3n) {
+  margin: 0 0 10px 0;
+}
+
+.buttonsContainer {
+  z-index: 999;
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background-color: transparent;
+  left: 0;
+  top: 0;
+  border-radius: 5px;
+  .cardButton {
+    color: transparent;
+    display: none;
+  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buttonsContainer:hover {
+  background-color: rgba(0, 0, 0, 0.493);
+  .cardButton {
+    display: flex;
+    color: rgb(210, 214, 214);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}

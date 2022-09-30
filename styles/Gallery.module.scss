@@ -1,0 +1,25 @@
+@import "../scss/_variables";
+
+.title {
+  margin-bottom: 10px;
+  color: $headerTextColor;
+  font-weight: 400;
+  font-size: 18px;
+  word-wrap: break-word;
+}
+
+.description {
+  color: $commonTextColor;
+  margin: 0 0 10px;
+  font-size: 12px;
+  word-wrap: break-word;
+}
+
+.photoContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.empty {
+  color: $headerTextColor;
+}
