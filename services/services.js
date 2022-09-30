@@ -1,81 +1,58 @@
-import { console } from "next/dist/compiled/@edge-runtime/primitives/console";
+const link = "http://localhost:3006";
+import axios from "axios";
 
-const link = "http://localhost:8080";
-
-export const fetchInfo = async () => {
-  try {
-    const res = await fetch(`${link}/info`);
-    const result = await res.json();
-    return result;
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-export const fetchImages = async () => {
-  try {
-    const res = await fetch(`${link}/images`);
-    const result = await res.json();
-    return result;
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-export const setInfo = async (data) => {
-  try {
-    const res = await fetch(`${link}/info`, {
-      method: "PUT",
-      body: JSON.stringify(data),
+  class PhotoGalleryApi {
+  getInstance = () => {
+    const instance = axios.create({
+      baseURL: link,
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const result = await res.json();
-    return result;
-  } catch (e) {
-    console.log(e);
-  }
-};
+    return instance;
+  };
 
-export const addNewImage = async (img) => {
-  try {
-    const res = await fetch(`${link}/images`, {
-      method: "POST",
-      body: JSON.stringify(img),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const result = await res.json();
-    return result;
-  } catch (e) {
-    console.log(e);
-  }
-};
+  fetchInfo = async () => {
+    const response = await this.getInstance()
+        .get("/info")
+        .then((res) => res.data);
+    return response;
+  };
 
-export const deleteImage = async (id) => {
-  try {
-    const res = await fetch(`${link}/images/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const result = await res.json();
-    return result;
-  } catch (e) {
-    console.log(e);
-  }
-};
+  fetchImages = async () => {
+    const response = await this.getInstance()
+        .get("/images")
+        .then((res) => res.data);
+    return response;
+  };
 
-export const deleteAllImages = async (images) => {
-  try {
-    images.forEach((img) => {
-      deleteImage(img.id);
+  setInfo = async (data) => {
+    const response = await this.getInstance()
+        .put("/info", data)
+        .then((res) => res.data);
+    return response;
+  };
+
+    addNewImage = async (data) => {
+    const response = await this.getInstance()
+        .post("/images", data)
+        .then((res) => res.data);
+    return response;
+  };
+
+    deleteImage = async (id) => {
+    const response = await this.getInstance()
+        .delete(`/images/${id}`)
+        .then((res) => res);
+    return response;
+  };
+
+    deleteAllImages = (data) => {
+    data.forEach((img) => {
+      this.getInstance().delete(`/images/${img.id}`);
     });
     return Promise.resolve();
-  } catch (e) {
-    console.log(e);
-  }
-};
+  };
+}
+
+export default new PhotoGalleryApi();

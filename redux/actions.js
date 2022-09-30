@@ -9,14 +9,7 @@ import {
   SELECT_IMAGE,
   SET_INFO,
 } from "./types";
-import {
-  addNewImage,
-  deleteAllImages,
-  deleteImage,
-  fetchImages,
-  fetchInfo,
-  setInfo,
-} from "../services/services";
+import PhotoGalleryApi from "../services/services";
 
 export const handleSelectImageAction = (image) => {
   return { type: SELECT_IMAGE, payload: image };
@@ -35,7 +28,7 @@ const handleFetchInfoAction = (data) => {
 };
 
 export const handleFetchInfoThunk = () => (dispatch) => {
-  return fetchInfo().then((res) => {
+  return PhotoGalleryApi.fetchInfo().then((res) => {
     dispatch(handleFetchInfoAction(res));
   });
 };
@@ -45,7 +38,7 @@ const handleFetchImagesAction = (images) => {
 };
 
 export const handleFetchImagesThunk = () => (dispatch) => {
-  return fetchImages().then((res) => {
+  return PhotoGalleryApi.fetchImages().then((res) => {
     dispatch(handleFetchImagesAction(res));
   });
 };
@@ -55,17 +48,17 @@ const handleSetInfoAction = (data) => {
 };
 
 export const handleSetInfoThunk = (data) => (dispatch) => {
-  return setInfo(data).then((res) => {
+  return PhotoGalleryApi.setInfo(data).then((res) => {
     dispatch(handleSetInfoAction(res));
   });
 };
 
-const handleAddImageAction = (image) => {
+const handleAddImageAction = (id,image) => {
   return { type: ADD_IMAGE, payload: image };
 };
 
 export const handleAddNewImageThunk = (data) => (dispatch) => {
-  return addNewImage(data).then((res) => {
+  return PhotoGalleryApi.addNewImage(data).then((res) => {
     dispatch(handleAddImageAction(res));
   });
 };
@@ -75,7 +68,7 @@ const handleDeleteImageAction = (id) => {
 };
 
 export const handleDeleteImageThunk = (id) => (dispatch) => {
-  return deleteImage(id).then((res) => {
+  return PhotoGalleryApi.deleteImage(id).then((res) => {
     dispatch(handleDeleteImageAction(id));
   });
 };
@@ -85,7 +78,7 @@ const handleDeleteAllImagesAction = () => {
 };
 
 export const handleDeleteAllImagesThunk = (images) => (dispatch) => {
-  return deleteAllImages(images).then(() => {
+  return PhotoGalleryApi.deleteAllImages(images).then(() => {
     dispatch(handleDeleteAllImagesAction());
   });
 };

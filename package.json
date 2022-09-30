@@ -7,10 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "app-start": "json-server --watch db.json --port 8080 & next dev"
+    "app-start": "json-server --watch db.json --port 3005 --no-cors  & next dev"
   },
   "dependencies": {
-    "json-server": "^0.17.0",
+    "axios": "^0.27.2",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

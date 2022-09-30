@@ -6,6 +6,7 @@ $headerTextColor: #8b8b8b;
 $commonTextColor: #9f9f9f;
 $buttonBorderColor: #000;
 $successBackgroundColor: #66bb6a;
+$linkTextColor: #000000;
 
 $borderRadius: 3px;
 
@@ -18,5 +19,6 @@ $borderRadius: 3px;
   commonTextColor: $commonTextColor;
   borderRadius: $borderRadius;
   buttonBorderColor: $buttonBorderColor;
-  $successBackgroundColor: $successBackgroundColor;
+  successBackgroundColor: $successBackgroundColor;
+  linkTextColor:$linkTextColor
 }

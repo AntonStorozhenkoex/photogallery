@@ -3,13 +3,14 @@ import ReactPaginate from "react-paginate";
 import { PhotoCard } from "./PhotoCard";
 import arrowLeft from "../public/arrow-left.svg";
 import arrowRight from "../public/arrow-right.svg";
-import { ButtonSvg } from "./ButtonSvg";
+import { ButtonIcon } from "./ButtonIcon";
 import styles from "../styles/PhotoList.module.scss";
 
 export const PhotoList = ({ itemsPerPage, photos }) => {
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
+
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -31,13 +32,13 @@ export const PhotoList = ({ itemsPerPage, photos }) => {
       </div>
       <ReactPaginate
         nextLabel={
-          <ButtonSvg className={styles.button} icon={arrowRight.src} />
+          <ButtonIcon className={styles.button} icon={arrowRight.src} />
         }
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
         previousLabel={
-          <ButtonSvg className={styles.button} icon={arrowLeft.src} />
+          <ButtonIcon className={styles.button} icon={arrowLeft.src} />
         }
         renderOnZeroPageCount={null}
         className={styles.pagination}

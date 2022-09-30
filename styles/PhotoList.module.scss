@@ -19,7 +19,7 @@
 
 .button {
   cursor: pointer;
-  background-color: white;
+  background-color: $dangerTextColor;
   border: 1px solid grey;
   border-radius: $borderRadius;
   padding: 2px 20px;

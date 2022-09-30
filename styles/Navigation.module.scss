@@ -1,3 +1,6 @@
+@import "../scss/_variables";
+
+
 .list {
   list-style: none;
   display: flex;
@@ -17,5 +20,5 @@
 
 .listItemLink {
   text-decoration: none;
-  color: #000000;
+  color: $linkTextColor;
 }

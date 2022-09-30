@@ -7,7 +7,7 @@ import {
   handleOpenDialogAction,
   handleSelectImageAction,
 } from "../redux/actions";
-import { ButtonSvg } from "./ButtonSvg";
+import { ButtonIcon } from "./ButtonIcon";
 import deleteIcon from "../public/delete-white.svg";
 import show from "../public/eye-line.svg";
 
@@ -18,22 +18,22 @@ export const PhotoCard = ({ id, src }) => {
     dispatch(handleDeleteImageThunk(id));
   };
 
+
   const handleShow = () => {
-    console.log("here");
     dispatch(handleSelectImageAction(src));
     dispatch(handleOpenDialogAction());
   };
 
   return (
     <div className={styles.photoCard}>
-      <Image src={src} width={90} height={90} alt={String(id)} />
+      <Image src={src} width={90} height={90} alt={id} />
       <div className={styles.buttonsContainer}>
-        <ButtonSvg
+        <ButtonIcon
           onClick={() => handleShow()}
           className={styles.cardButton}
           icon={show.src}
         />
-        <ButtonSvg
+        <ButtonIcon
           onClick={() => handleDelete(id)}
           className={styles.cardButton}
           icon={deleteIcon.src}

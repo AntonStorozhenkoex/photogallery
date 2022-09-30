@@ -12,17 +12,15 @@ export const Dialog = () => {
     dispatch(handleCloseDialogAction());
   };
 
-  return (
-    <div
+  return <> {isOpenDialog &&    <div
       className={styles.dialogWrapper}
-      style={{ display: isOpenDialog || "none" }}
-    >
-      <div className={styles.content}>
-        <Image src={selectedImage} width={500} height={500} alt='Img'/>
-        <button onClick={() => handleClose()} className={styles.closeButton}>
-          X
-        </button>
-      </div>
+  >
+    <div className={styles.content}>
+      <Image src={selectedImage} width={500} height={500} alt='Img'/>
+      <button onClick={() => handleClose()} className={styles.closeButton}>
+        X
+      </button>
     </div>
-  );
+  </div> }<
+  />
 };

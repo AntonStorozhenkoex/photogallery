@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/Download.module.scss";
 import ImageUploading from "react-images-uploading";
 import Image from "next/image";
-import { ButtonSvg } from "./ButtonSvg";
+import { ButtonIcon } from "./ButtonIcon";
 import uploadIcon from "../public/upload-line.svg";
 import deleteIcon from "../public/delete.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -44,11 +44,13 @@ export const Download = () => {
         onChange={(e) => setTitle(e.target.value)}
         className={styles.input}
       />
+
       <textarea
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         className={styles.textarea}
       />
+
       <ImageUploading
         dataURLKey="url"
         values={images}
@@ -83,7 +85,7 @@ export const Download = () => {
             </div>
             {images.length > 0 && (
               <div className={styles.buttonsContainer}>
-                <ButtonSvg
+                <ButtonIcon
                   icon={uploadIcon.src}
                   className={styles.uploadButton}
                   onClick={() => {
@@ -91,7 +93,7 @@ export const Download = () => {
                     onImageRemove();
                   }}
                 />
-                <ButtonSvg
+                <ButtonIcon
                   icon={deleteIcon.src}
                   className={styles.clearButton}
                   onClick={onImageRemove}
@@ -101,6 +103,7 @@ export const Download = () => {
           </div>
         )}
       </ImageUploading>
+
       <button
         className={styles.deleteButton}
         onClick={() => handleDeleteAllImages()}
