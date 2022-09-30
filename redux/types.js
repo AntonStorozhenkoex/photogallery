@@ -7,3 +7,4 @@ export const DELETE_ALL_IMAGES = "DELETE_ALL_IMAGES";
 export const SELECT_IMAGE = "SELECT_IMAGE";
 export const OPEN_DIALOG = "OPEN_DIALOG";
 export const CLOSE_DIALOG = "CLOSE_DIALOG";
+export const SET_LOADING = 'SET_LOADING'

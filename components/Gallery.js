@@ -1,29 +1,30 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import styles from "../styles/Gallery.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { handleFetchImagesThunk, handleFetchInfoThunk } from "../redux/actions";
-import { PhotoList } from "./PhotoList";
+import {useDispatch, useSelector} from "react-redux";
+import {handleFetchImagesThunk, handleFetchInfoThunk, handleSetLoading} from "../redux/actions";
+import {PhotoList} from "./PhotoList";
+import {Loader} from "./Loader";
 
 export const Gallery = ({}) => {
-  const dispatch = useDispatch();
-  const { title, description, photos } = useSelector((state) => state.gallery);
+    const dispatch = useDispatch();
+    const {title, description, photos, isLoading} = useSelector((state) => state.gallery);
+    useEffect(() => {
+        dispatch(handleFetchInfoThunk());
+        dispatch(handleFetchImagesThunk());
+        dispatch(handleSetLoading())
+    }, []);
 
-  useEffect(() => {
-    dispatch(handleFetchInfoThunk());
-    dispatch(handleFetchImagesThunk());
-  }, []);
-
-  return (
-    <>
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{description}</p>
-      <div className={styles.photoContainer}>
-        {photos?.length > 0 ? (
-          <PhotoList photos={photos} itemsPerPage={9} />
-        ) : (
-          <p className={styles.empty}>Please, add photos</p>
-        )}
-      </div>
-    </>
-  );
+    return (
+        <>
+            <h3 className={styles.title}>{title}</h3>
+            <p className={styles.description}>{description}</p>
+            <div className={styles.photoContainer}>
+                {photos.length > 0 && !isLoading ? (
+                    <PhotoList photos={photos} itemsPerPage={9}/>
+                ) : (
+                    <div className={styles.empty}>{isLoading ? <Loader/> : <p>Please, add photos</p>}</div>
+                )}
+            </div>
+        </>
+    );
 };

@@ -7,7 +7,7 @@ import {
   FETCH_INFO,
   OPEN_DIALOG,
   SELECT_IMAGE,
-  SET_INFO,
+  SET_INFO, SET_LOADING,
 } from "./types";
 import PhotoGalleryApi from "../services/services";
 
@@ -82,3 +82,7 @@ export const handleDeleteAllImagesThunk = (images) => (dispatch) => {
     dispatch(handleDeleteAllImagesAction());
   });
 };
+
+export const handleSetLoading = () => {
+  return { type: SET_LOADING };
+}

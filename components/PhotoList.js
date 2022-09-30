@@ -37,6 +37,7 @@ export const PhotoList = ({ itemsPerPage, photos }) => {
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
+        breakLabel="..."
         previousLabel={
           <ButtonIcon className={styles.button} icon={arrowLeft.src} />
         }

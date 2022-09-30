@@ -7,22 +7,23 @@ import uploadIcon from "../public/upload-line.svg";
 import deleteIcon from "../public/delete.svg";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  handleAddNewImageThunk,
-  handleDeleteAllImagesThunk,
-  handleFetchImagesThunk,
-  handleSetInfoThunk,
+    handleAddNewImageThunk,
+    handleDeleteAllImagesThunk,
+    handleFetchImagesThunk,
+    handleSetInfoThunk, handleSetLoading,
 } from "../redux/actions";
 
 export const Download = () => {
   const dispatch = useDispatch();
-  const { photos } = useSelector((state) => state.gallery);
+  const { photos,isLoading } = useSelector((state) => state.gallery);
   const [images, setImages] = useState([]);
   const [title, setTitle] = useState("Photo Gallery");
   const [description, setDescription] = useState("Description");
 
   useEffect(() => {
+      dispatch(handleSetLoading())
     dispatch(handleFetchImagesThunk());
-  }, []);
+  }, [isLoading]);
 
   const handleUploadImageChange = (imageList) => {
     setImages(imageList);
